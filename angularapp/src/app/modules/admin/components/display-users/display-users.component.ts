@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MustMatch } from 'src/app/helpers/must-match.validator';
@@ -6,6 +6,7 @@ import { MustMatch } from 'src/app/helpers/must-match.validator';
 @Component({
   selector: 'app-display-users',
   templateUrl: './display-users.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./display-users.component.css']
 })
 export class DisplayUsersComponent implements OnInit {
