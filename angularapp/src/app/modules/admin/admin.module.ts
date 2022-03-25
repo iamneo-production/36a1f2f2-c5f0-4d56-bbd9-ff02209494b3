@@ -8,7 +8,6 @@ import { AddgroundComponent } from './components/addground/addground.component';
 import { EditgroundComponent } from './components/editground/editground.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddadminComponent } from './components/addadmin/addadmin.component';
-import { EditgrdComponent } from './components/editground/editgrd/editgrd.component';
 import { DeletegroundComponent } from './components/editground/deleteground/deleteground.component';
 import { DisplayUsersComponent } from './components/display-users/display-users.component';
 
@@ -21,7 +20,6 @@ import { DisplayUsersComponent } from './components/display-users/display-users.
     AddgroundComponent,
     EditgroundComponent,
     AddadminComponent,
-    EditgrdComponent,
     DeletegroundComponent,
     DisplayUsersComponent
   ],

@@ -13,16 +13,17 @@
                     </a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="./dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" routerLink="./displayusers" >Display user</a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
-                    <a class="nav-link" routerLink="./addground">Add Ground</a>
+                    <a class="nav-link" routerLink="./addGround">Add Ground</a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
-                    <a class="nav-link" routerLink="./editground">Ground Profile</a>
-                </li></ul>
+                </ul>
                 <li class=" nav-item" role="button">
-                    <a class="nav-link btn btn-outline-light btn-sm me-3" routerLink="./addadmin">Add Admin</a>
+                    <a class="nav-link btn btn-outline-light btn-sm me-3" routerLink="./signup">Add Admin</a>
                 </li>
                 <li class=" nav-item" role="button" >
                     <a class="nav-link text-dark btn btn-warning btn-sm me-3" (click)="logout()">Logout</a>
@@ -30,3 +31,5 @@
         </div>
     </div>
 </nav>
+<router-outlet></router-outlet>
+<router-outlet name="modal"></router-outlet>

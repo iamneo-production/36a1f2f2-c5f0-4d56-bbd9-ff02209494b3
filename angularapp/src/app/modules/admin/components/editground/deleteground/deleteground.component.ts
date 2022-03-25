@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-deleteground',
   templateUrl: './deleteground.component.html',
-  styleUrls: ['./deleteground.component.scss']
+  styleUrls: ['./deleteground.component.css']
 })
 export class DeletegroundComponent implements OnInit {
 

@@ -26,12 +26,12 @@ export class AuthService {
   }
 
   login({ email, password }: any): Observable<any> {
-    if (email === 'admin@gmail.com' && password === 'admin') {
+    if (email === 'admin@gmail.com' && password === 'Admin@123') {
       this.setToken('abcdefghijklmnopqrstuvwxyz');
       this.router.navigate(['/admin']);
       return of({ name: 'admin', email: 'admin@gmail.com' });
     }
-    if (email === 'user@gmail.com' && password === 'user123') {
+    if (email === 'user@gmail.com' && password === 'user@123') {
       this.setToken('abcdefghijklmnopqrstuvwxyz');
       this.router.navigate(['/user']);
       return of({ name: 'user', email: 'user@gmail.com' });

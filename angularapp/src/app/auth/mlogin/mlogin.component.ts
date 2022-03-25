@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 @Component({
   selector: 'app-mlogin',
   templateUrl: './mlogin.component.html',
-  styleUrls: ['./mlogin.component.scss']
+  styleUrls: ['./mlogin.component.css']
 })
 export class MloginComponent implements OnInit {
   Form = new FormGroup({

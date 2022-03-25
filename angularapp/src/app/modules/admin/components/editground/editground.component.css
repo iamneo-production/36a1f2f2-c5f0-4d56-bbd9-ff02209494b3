@@ -1,10 +1,10 @@
 .card{
-    width: 18rem;
+    margin: 0%;
+    width: 15cm;
     
 }
 .bgbar{
-    background-color: #303F9F;
+    background-color: #ebecf5;
 }
-.justify-content-center{
-    width: 20cm;
-}
+.form-group {
+    margin-bottom:15px;}

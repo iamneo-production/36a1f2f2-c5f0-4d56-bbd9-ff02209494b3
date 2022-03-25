@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-addground',
   templateUrl: './addground.component.html',
-  styleUrls: ['./addground.component.scss']
+  styleUrls: ['./addground.component.css']
 })
 export class AddgroundComponent implements OnInit {
   GroundName=""

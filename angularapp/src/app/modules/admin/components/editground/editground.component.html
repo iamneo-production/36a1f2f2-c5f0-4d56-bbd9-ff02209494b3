@@ -1,70 +1,53 @@
 <div class="bgbar">
     <div class="container pt-5 pb-5">
-        <form class="d-flex justify-content-center">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-success" type="submit">Search</button>
-          </form>
-        <div class="col-12">
-            <div class="d-flex flex-wrap justify-content-around pt-5">
-               
-                <div class="card shadow mt-2 grid">
-                    <img class="card-img-top " src="../../../assets/ground3.jpg" class="rounded" width="286" height="236" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">GroundName</h5>
-                        <p class="card-text">Ground description</p>
-                        <a class="btn btn-primary me-2" routerLink="../editgrd">Edit Ground</a>
-                        <a class="btn btn-danger" routerLink="../deleteground">Delete ground</a>
-                    </div>
+        <div class="row justify-content-center h-100">
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="card shadow mt-2 ">
+                    <div class="card-body px-5">
+                    <h5 class="card-title">Edit Ground</h5>
+            <form class="form"> 
+                <div class="form-group form-floating">
+                  <input type="text"
+                  id="GroundName" placeholder="Ground Name" 
+                  class="form-control" formControlName="GroundName" />
+                  <label>Ground Name</label>
                 </div>
-                <div class="card shadow mt-2">
-                    <img class="card-img-top" src="../../../assets/ground1.jpg" class="rounded" width="286" height="236" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">GroundName</h5>
-                      <p class="card-text">Ground description</p>
-                      <a class="btn btn-primary me-2" routerLink="../editgrd">Edit Ground</a>
-                      <a class="btn btn-danger" routerLink="../deleteground">Delete ground</a>
-                    </div>
+                <div class="form-group form-floating">
+                    <input type="text"
+                    id="GroundPrice" placeholder="Ground Price" 
+                    class="form-control" formControlName="GroundPrice" />
+                    <label>Ground Price</label>
+                </div>
+                  <div class="form-group form-floating">
+                    <input type="text"
+                     id="GroundLocation" placeholder="Ground Location" 
+                     class="form-control" formControlName="GroundLocation" />
+                     <label>Ground Location</label>
                   </div>
-                <div class="card shadow mt-2">
-                    <img class="card-img-top" src="../../../assets/ground2.jpg" class="rounded" width="286" height="236" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">GroundName</h5>
-                        <p class="card-text">Ground description</p>
-                        <a class="btn btn-primary me-2" routerLink="../editgrd">Edit Ground</a>
-                        <a class="btn btn-danger" routerLink="../deleteground">Delete ground</a>
+                  <div class="form-group form-floating">
+                    <input type="text"
+                    id="GameType" placeholder="Game Type" 
+                    class="form-control" formControlName="GameType"/>
+                    <label>Game Type</label>
+                  </div>
+                  <div class="form-group  form-floating">
+                    <input type="text" placeholder="Ground Description"
+                   id="GroundDescription" class="form-control" formControlName="GroundDescription" />
+                    <label>Ground Description</label>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Image Url</label>
+                    <input type="text" placeholder="imageUrl" class="form-control" formControlName="imageFile" id="imageFile"/>
+                  </div>
+  
+               <button class="btn btn-primary me-2" type="submit"  >Save Changes</button>
+               <a routerLink="../dashboard" href="" class="btn btn-white-link">Cancel</a>
+              </form>
                     </div>
                 </div>
-            </div>
-            <div class="d-flex flex-wrap justify-content-around pt-5">
-                <div class="card shadow mt-2">
-                    <img class="card-img-top" src="../../../assets/ground3.jpg" class="rounded" width="286" height="236" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">GroundName</h5>
-                        <p class="card-text">Ground description</p>
-                        <a class="btn btn-primary me-2" routerLink="../editgrd">Edit Ground</a>
-                        <a class="btn btn-danger" routerLink="../deleteground">Delete ground</a>
-                    </div>
-                </div>
-                <div class="card shadow mt-2">
-                    <img class="card-img-top" src="../../../assets/ground1.jpg" class="rounded" width="286" height="236" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Ground description</p>
-                        <a class="btn btn-primary me-2" routerLink="../editgrd">Edit ground</a>
-                        <a class="btn btn-danger" routerLink="../deleteground">Delete ground</a>
-                    </div>
-                </div>
-                <div class="card shadow mt-2">
-                    <img class="card-img-top" src="../../../assets/ground2.jpg" class="rounded" width="286" height="236" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">GroundName</h5>
-                        <p class="card-text">Ground description</p>
-                        <a class="btn btn-primary me-2" routerLink="../editgrd">Edit ground</a>
-                        <a class="btn btn-danger" routerLink="../deleteground">Delete ground</a>
-                    </div>
-                </div>
-                
             </div>
         </div>
     </div>
     </div>
+    
+  
