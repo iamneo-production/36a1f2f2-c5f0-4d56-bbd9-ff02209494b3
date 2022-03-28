@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { grounds } from 'src/app/shared/grounds';
 
 @Component({
   selector: 'app-user-home',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-home.component.css']
 })
 export class UserHomeComponent implements OnInit {
-
+  grounds=grounds;
   constructor() { }
 
   ngOnInit(): void {
