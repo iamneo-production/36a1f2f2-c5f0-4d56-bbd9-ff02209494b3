@@ -1,7 +1,10 @@
 .card{
-    width: 100%;
-    height: 100%;
+    width: 18rem;
+    
 }
 .bgbar{
-    background-color: #ebecf5;
+    background-color: #cdd2fd;
+}
+.justify-content-center{
+    width: 20cm;
 }
