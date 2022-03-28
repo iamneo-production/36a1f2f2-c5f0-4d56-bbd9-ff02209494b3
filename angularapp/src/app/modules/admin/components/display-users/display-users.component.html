@@ -1,0 +1,73 @@
+<div class="container pt-5 pb-5">
+    <div class="d-flex">
+    <button class="btn btn-primary mb-2 me-2" (click)="openBackDropCustomClass(content)">Add User</button>
+    </div>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Email-id</th>
+                <th scope="col">Role</th>
+                <th scope="col">Mobile Number</th>
+                <th scope="col">Password</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Yadav424</td>
+                <td>yshashi45@gmail.com</td>
+                <td>User</td>
+                <td>9442025352</td>
+                <td>--</td>
+                <td>
+                    <button class="btn btn-info">Edit</button>
+                    <button class="btn btn-danger mx-3">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+      <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">User Details</h4>
+          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" > 
+            <div class="form-group form-floating">
+                <input type="text" placeholder="Enter User Name" id="username"
+                class="form-control" formControlName="username"/>
+                <label>Enter UserName</label>
+            </div>
+              <div class="form-group form-floating">
+                <input type="email" placeholder="Enter Email-id" id="email"
+                class="form-control" formControlName="email"/>
+                <label>Enter Email-id</label>
+            </div>
+              <div class="form-group form-floating">
+                <input type="tel" placeholder="Enter Mobile Number" id="MobileNumber"
+                class="form-control" formControlName="MobileNumber"/>
+                <label>Enter Mobile Number</label>
+            </div>
+              <div class="form-group form-floating">
+                <input type = "password" placeholder="Enter Password" id="password"
+                class="form-control" formControlName="password"/>
+                <label>Enter Password</label>
+            </div>
+            <div class="form-group form-floating">
+                <input type = "password" placeholder="Re-Enter Password" id="confirmPassword"
+                class="form-control" formControlName="confirmPassword"/>
+                <label>Re-Enter Password</label>
+            </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+          <button type="submit" class="btn btn-primary" (click)="modal.close('Ok click')">Submit</button>
+        </div>
+      </ng-template>
+     
