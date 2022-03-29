@@ -1,0 +1,90 @@
+package com.springapp.app.indoorturfbooking.Service.impl;
+
+import com.springapp.app.indoorturfbooking.Entity.Role;
+import com.springapp.app.indoorturfbooking.Entity.User;
+import com.springapp.app.indoorturfbooking.Entity.UserDto;
+import com.springapp.app.indoorturfbooking.Repository.RoleRepository;
+import com.springapp.app.indoorturfbooking.Repository.UserRepository;
+
+
+import com.springapp.app.indoorturfbooking.Service.RoleService;
+import com.springapp.app.indoorturfbooking.Service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+@Service(value="userService")
+public class UserServiceImpl implements UserDetailsService, UserService {
+
+    @Autowired
+    private RoleService roleService;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
+
+    @Lazy
+    @Autowired
+    private BCryptPasswordEncoder bCryptEncoder;
+
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user=userRepository.findByUsername(username);
+        if(user==null) {
+            throw new UsernameNotFoundException("Invalid username or password");
+        }
+        return new org.springframework.security.core.userdetails.User(user.getUsername(),user.getPassword(),getAuthority(user));
+    }
+    private Set<SimpleGrantedAuthority> getAuthority(User user){
+        Set<SimpleGrantedAuthority> authorities=new HashSet<>();
+        user.getRoles().forEach(role -> {
+            authorities.add(new SimpleGrantedAuthority("ROLE_"+role.getName()));
+
+        });
+        return authorities;
+    }
+
+    @Override
+    public User save(UserDto user) {
+        User nUser=user.getUserFromDto();
+        nUser.setPassword(bCryptEncoder.encode(user.getPassword()));
+
+        Role role = roleService.findByName("USER");
+        Set<Role> roleSet=new HashSet<>();
+        roleSet.add(role);
+
+        if(nUser.getEmail().split("@")[1].equals("admin.edu")){
+            role=roleService.findByName("ADMIN");
+            roleSet.add(role);
+        }
+        nUser.setRoles(roleSet);
+        return userRepository.save(nUser);
+    }
+
+    @Override
+    public List<User> finaAll() {
+        List<User> list=new ArrayList<>();
+        userRepository.findAll().iterator().forEachRemaining(list::add);
+        return list;
+    }
+
+    @Override
+    public User findOne(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+
+
+
+}

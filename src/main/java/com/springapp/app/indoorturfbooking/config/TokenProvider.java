@@ -7,6 +7,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -15,6 +16,7 @@ import java.util.Date;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+@Component
 public class TokenProvider implements Serializable {
     @Value("${jwt.token.validity}")
     public long TOKEN_VALIDITY;
@@ -57,7 +59,7 @@ public class TokenProvider implements Serializable {
                 .claim(AUTHORITIES_KEY,authorities)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis()+TOKEN_VALIDITY*1000))
-                .signWith(SignatureAlgorithm.ES256,SIGNING_KEY)
+                .signWith(SignatureAlgorithm.HS256,SIGNING_KEY)
                 .compact();
     }
 

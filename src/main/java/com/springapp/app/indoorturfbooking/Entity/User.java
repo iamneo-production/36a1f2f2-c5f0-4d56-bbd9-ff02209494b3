@@ -1,30 +1,24 @@
 package com.springapp.app.indoorturfbooking.Entity;
 
-import java.util.List;
+
 import java.util.Set;
 
 import javax.persistence.*;
 
-import lombok.Data;
 
-@Data
 @Entity
-@Table
 public class User {
-    
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "sl_no")
-    private long sno;             //Seriel Number of User.
-
-    @Column(name = "uid", nullable = false, unique = true)
-    private String userId;        //User Id of User.
+    private  Long id;        //User Id of User.
 
     @Column(nullable = false, unique = true)
     private String email;         //EmailId of User.
 
     @Column(name = "uname", nullable = false)
-    private String userName;      //Username of User.
+    private String username;      //Username of User.
 
     @Column(nullable = false, unique = true)
     private String mobile;        //Mobile number of User.
@@ -34,9 +28,11 @@ public class User {
 
     private boolean isActive;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    /*@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_bookings")
-    private List<Bookings> bookings;
+    private List<BookingGround> bookings;
+    */
+
 
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinTable(name="USER_ROLES",
@@ -48,20 +44,14 @@ public class User {
     })
     private Set<Role> roles;
 
-    public long getSno() {
-        return sno;
+
+
+    public long getUserId() {
+        return id;
     }
 
-    public void setSno(long sno) {
-        this.sno = sno;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserId(long userId) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -72,12 +62,12 @@ public class User {
         this.email = email;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public String getMobile() {
@@ -104,19 +94,15 @@ public class User {
         isActive = active;
     }
 
-    public List<Bookings> getBookings() {
-        return bookings;
-    }
-
-    public void setBookings(List<Bookings> bookings) {
-        this.bookings = bookings;
-    }
 
     public Set<Role> getRoles() {
         return roles;
     }
 
+
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+
 }

@@ -37,4 +37,14 @@ public class UserDto {
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
+
+    public User getUserFromDto() {
+        User user=new User();
+        user.setUserName(username);
+        user.setPassword(password);
+        user.setEmail(email);
+        user.setMobile(mobile);
+
+        return user;
+    }
 }
