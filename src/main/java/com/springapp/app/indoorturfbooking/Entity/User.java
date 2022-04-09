@@ -1,6 +1,7 @@
 package com.springapp.app.indoorturfbooking.Entity;
 
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -43,6 +44,9 @@ public class User {
             @JoinColumn(name = "ROLE_ID")
     })
     private Set<Role> roles;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_bookings")
+    private List<Bookings> bookings;
 
 
 

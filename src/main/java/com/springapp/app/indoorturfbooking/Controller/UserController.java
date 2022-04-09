@@ -57,6 +57,7 @@ public class UserController {
     public User saveUser(@RequestBody UserDto user) {
         return userService.save(user);
     }
+
         @PreAuthorize("hasRole('USER')")
         @RequestMapping(value = "/userpage", method = RequestMethod.POST)
         public String userping () {
