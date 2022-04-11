@@ -19,12 +19,20 @@ export class LoginComponent implements OnInit {
   }
 
   loginUsers(){
+  
 this.authService.login(this.user).subscribe(
   {
+    
  next: data=>{
+  const roled: string[]=this.authService.user.roles;
    console.log("response recieved");
-   console.log(data);
-   this.router.navigate(['/dashboard']);
+   if(roled.includes('ROLE_ADMIN')){
+   this.router.navigate(['admin']);
+   }
+   else if(roled.includes('ROLE_USER'))
+  {
+    this.router.navigate(['user']);
+   }
 
  },
   error: err=>{console.log(err.msg);

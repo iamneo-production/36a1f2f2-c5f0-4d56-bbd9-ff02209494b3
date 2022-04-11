@@ -1,0 +1,40 @@
+<div class="bgbar">
+    <div class="contain pt-5 pb-5" id="MyBookingBody">
+      <div class="row ">
+        <div class="d-flex flex-wrap justify-content-center">
+          <div  class=" card shadow elevation-z4">
+            <div class="card-header" >
+              <div class="card-title">Booking Details</div>
+            </div>
+            <div class="card-body px-5">
+          <form class="form">
+              <div>
+                  <input placeholder="Turfname" name="Turfname">
+              </div>
+                <div>
+                  <input placeholder="Address" name="address">
+                </div>
+                <div>
+                  <input type="date" placeholder="From date:" id="editBookingDate" name="trip-start" value=""
+                  min="2020-03-01" max="2020-04-31">
+                </div>
+                <div>
+                  <input type="date" placeholder="To date:" id="editBookingDate1" name="trip-start" value=""
+                  min="2020-03-01" max="2020-04-31">
+                </div>
+                <div>
+                  <input placeholder="No. of persons" name="noofpersons" id="editNoOfPerson">
+                </div>
+                <div>
+                  <input placeholder="Total Price" name="Total price">
+                </div>
+                <button  type="submit" class="btn btn-primary me-2" routerLink="../editbookedgrounds/:id">Edit Booking</button>
+             <button  type="submit" class="btn btn-warning" id="cancelBookingButton" routerLink="../deletebookedgrounds/:id">cancel Booking</button>
+            </form>
+            
+          </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>

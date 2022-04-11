@@ -28,7 +28,7 @@
        <!-- <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email ID is required field</small>-->
                     </div>
                     <div *ngIf="email.errors && (email.invalid && email.touched)" >
-                      <small class="text-danger" *ngIf="email.errors">emailId is required.  </small>
+                      <small class="text-danger" *ngIf="email.errors?.['required']">emailId is required.  </small>
                      <small  class="text-danger"  *ngIf="email.invalid">enter the valid email</small>
                     </div>
   

@@ -18,11 +18,13 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>,
      next: HttpHandler
      ): Observable<HttpEvent<any>> {
-    if(request.headers.get('No-Auth')=='True'){
-      return next.handle(request);
-    }
+       if(request.headers.get('No-Auth')=='True'){
+         return next.handle(request.clone());
+       }
     const token=this.auth.token;
+    if(token!=null){
     request=this.addToken(request,token);
+    }
 return next.handle(request).pipe(
   catchError(
     (err:HttpErrorResponse)=>{

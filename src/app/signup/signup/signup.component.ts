@@ -21,9 +21,10 @@ msg='';
       {
         next: data=>{
           console.log("registered succesfully")
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/login']);
         },
         error: err=>{
+          console.log(this.user);
           console.log(err.msg);
           this.msg='bad details';
         }

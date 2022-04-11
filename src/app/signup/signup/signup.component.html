@@ -21,13 +21,13 @@
                     <small [class.text-danger]="true">{{msg}}</small>
                     <div class="form-outline mb-3">
                       <label class="form-label" for="email">Email address</label>
-                      <input type="email" name="email" id="email"placeholder="Email" class="form-control form-control-lg" [(ngModel)]="user.emailId" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+                      <input type="email" name="email" id="email"placeholder="Email" class="form-control form-control-lg" [(ngModel)]="user.email" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
                        #email="ngModel" 
                       [class.is-invalid]="email.invalid && email.touched"
                       />
                     </div>
                     <div *ngIf="email.errors && (email.invalid && email.touched)" >
-                      <small class="text-danger" *ngIf="email.errors">emailId is required.  </small>
+                      <small class="text-danger" *ngIf="email.errors?.['required']">emailId is required.  </small>
                      <small  class="text-danger"  *ngIf="email.invalid">enter the valid email</small>
                     </div>
                     <div class="form-outline mb-3">
@@ -37,10 +37,11 @@
                       </div>
 					<div class="form-outline mb-3">
 						<label class="form-label" for="mobile">Mobile</label>
-						<input type="mobile" id="mobile" name="mobile" placeholder="mobile" class="form-control form-control-lg" [(ngModel)]="user.mobile" required #mobile="ngModel"
+						<input type="mobile" id="mobile" name="mobile" placeholder="mobile" class="form-control form-control-lg" [(ngModel)]="user.mobile" required #mobile="ngModel" pattern="^((\\+91-?)|0)?[0-9]{10}$"
 						[class.is-invalid]="mobile.invalid && mobile.touched"/>
 					  </div>
 					  <small class="text-danger" [class.d-none]="password.valid || password.untouched"> mobile is required field</small>
+            <small class="text-danger" *ngIf="mobile.errors?.['pattern']">Invalid mobile</small>
                     <div class="form-outline mb-3">
                       <label class="form-label" for="pwd">Password</label>
                       <input type="password" id="pwd" name="password" placeholder="password" class="form-control form-control-lg" [(ngModel)]="user.password" required #password="ngModel"

@@ -1,0 +1,32 @@
+
+.container{
+    width:900px;
+    justify-content: center;
+}
+div{
+    justify-content: center;
+}
+.bgbar{
+    background-color: #ebecf5;
+}
+.card { 
+margin: 15px; 
+padding: 15px;
+width:700px;
+text-align: center;
+display: flex;
+}
+.card-header{
+background-color: rgb(32, 8, 97);
+color: aliceblue;border-radius: 5px;border: 2%;
+}
+.card-title{
+    margin: 10px;
+    text-align: center; 
+}
+label{
+    padding: 10px;
+}
+input{
+    padding: 5px;margin: 10px;
+}

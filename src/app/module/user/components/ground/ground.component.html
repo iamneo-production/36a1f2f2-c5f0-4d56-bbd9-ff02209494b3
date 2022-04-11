@@ -1,0 +1,57 @@
+<div class="bgbar" id="dashBoardBody">
+  <div class="container pt-5 pb-5">
+    <div class="row ">
+     
+      <div fxFlex="50%" *ngFor="let num of [1]">
+        <div  class=" card shadow elevation-z4" id="dsgrid1">
+          <div class="card-header" >
+            <div class="card-title">Available</div>
+          </div>
+          <div class="card-title">Ground Name</div>
+          <div class="card-body">
+            <label for="place">Place :  </label>
+            <input id="place" placeholder="Enter place">
+        <br>
+        <label for="fillFromDate">From :  </label>
+        <input type="date" id="fillFromDate" name="From-Date" value=""
+               min="2020-03-01" max="2020-04-31">
+          <label for="fillToDate">To :  </label>
+          <input type="date" id="fillToDate" name="To-Date" value=""
+                      min="2020-03-01" max="2020-04-31">
+           <br>
+            <label for="noofpersons">No. of Persons:</label>
+            <input placeholder="Enter no. of persons" id="enterNoTicket">
+            <br>
+            <p style="padding: 5px;"> Price: per head 1500</p>
+            <br>
+            <button class="btn btn-success w-50" id="bookButton" routerLink="../bookedgrounds">Book</button>
+            
+          </div>
+        </div>
+       
+        <div  class="card shadow elevation-z4" id="dsgrid2">
+          <div class="card-header">
+            <div class="card-title" >Booked</div>
+        </div>
+        <div class="card-title">Ground Name</div>
+          <div class="card-body">
+            <label for="place1">Place :  </label>
+            <input id="place1" placeholder="Enter place">
+        <br>
+            <label for="start">From :  </label>
+        <input type="date" id="start" name="trip-start" value=""
+               min="2020-03-01" max="2020-04-31">
+          <label for="end">To :  </label>
+          <input type="date" id="end" name="trip-end" value=""
+                      min="2020-03-01" max="2020-04-31">
+           <br>
+            <label for="noofpersons">No. of Persons</label>
+            <input placeholder="Enter no. of persons:">
+            <br>
+            <p style="padding: 5px;">  Price: per head 1500</p>
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>

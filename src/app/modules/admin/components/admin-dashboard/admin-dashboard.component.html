@@ -1,0 +1,236 @@
+<div class="bgbar vh-100" >
+    <div class="container pt-5 pb-5" id="dashBoard">   
+         
+      
+      
+      <div class="row">
+        <div class="col-md-10">
+          <div class="row justify-content-around">
+        <form class="d-flex justify-content-center">
+            <input class="form-control me-2 col-8" type="search" name="key" (ngModelChange)="searchground(key.value)"  #key="ngModel" ngModel placeholder="Search" aria-label="Search">
+            <!--<button class="btn btn-success col-sm-2" id="searchButton" type="submit">Search</button>-->
+            <button class="btn btn-success col-4 " (click)="open(content)" id="addGround" type="button">Add Ground</button>
+          </form>
+         
+        </div>
+      
+      
+        <div class="col-12">
+            <div class="d-flex flex-wrap justify-content-around pt-5">
+            <div *ngFor="let ground of grounds">
+             <div class="card shadow mt-2 mb-4 ms-1 me-1" id="adminProfileView">
+                <img class="card-img-top" src="{{ground?.imageURL}}" class="rounded" width="286" height="236" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title"><a routerLink="./grounddetails" [title]="ground?.groundName + ' details'">
+                    {{ ground.groundName }}
+                  </a></h4>
+                  <p class="card-text"*ngIf="ground.groundAddress">
+                    <strong> Place:</strong> {{ ground?.groundAddress }}</p>
+                  <p class="card-text"*ngIf="ground.groundDescription">
+                      <strong> Description:</strong> {{ ground?.groundDescription }}</p>
+                      <p class="card-text"*ngIf="ground.GroundTiming">
+                        <strong> Timing:</strong> {{ ground?.GroundTiming }}</p>
+                      <p class="card-text"*ngIf="ground.price">
+                       <strong> Price:</strong> {{ ground?.price }}</p>
+                         <div class="row justify-content-around">
+                    <a class="btn btn-primary col-md-6  fa fa-edit"   (click)="openEdit(contentEdit,ground)" id="editGround"> Edit Ground</a>
+                    <a class="btn btn-danger col-md-6  fa fa-remove" (click)="openDelete(contentDelete, ground)" id="deleteGround"> Delete ground</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+<!--add Ground-->
+
+
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New Friend</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="form" #f="ngForm" (ngSubmit)="onSubmitadd(f)" novalidate> 
+      <div class="form-group form-floating">
+        <input type="text"
+        id="name" name="groundName" 
+        placeholder="Enter Name"
+         ngModel
+        class="form-control"
+        required
+       />
+        <label>Enter Name</label>
+      </div>
+      <div class="form-group form-floating">
+          <input type="text"
+          id="groundTiming" name="groundTiming" placeholder="Available Timing" ngModel
+          class="form-control"  />
+          <label>Enter the Available Timing</label>
+      </div>
+      <div class="form-group form-floating">
+        <input type="text"
+        id="capacity" name="capacity" placeholder="capacity" ngModel
+        class="form-control"  />
+        <label>Enter the capacity</label>
+    </div>
+        <div class="form-group form-floating">
+          <input type="text"
+           id="groundAddress" name="groundAddress" placeholder="Ground Address" ngModel
+           class="form-control"  />
+           <label>Enter the address</label>
+        </div>
+        <div class="form-group form-floating">
+          <input type="text"
+           id="imageUrl" name="imageURL" placeholder="ImageUrl" ngModel
+           class="form-control"  />
+           <label>Enter the Image Url</label>
+        </div>
+        <div class="form-group form-floating">
+          <input type="text"
+          id="price" name="price" placeholder="Price" ngModel
+          class="form-control" />
+          <label>Enter the Price</label>
+        </div>
+        <div class="form-group  form-floating">
+          <input type="text" name="groundDescription" placeholder="Ground Description" ngModel
+         id="groundDescription" class="form-control"  />
+          <label>Description</label>
+        </div>
+        
+<div class="border text-center">
+     <button  data-dismiss="modal" class="btn btn-info"  >Add</button>
+    </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">cancel</button>
+  </div>
+</ng-template>
+
+
+
+
+
+
+<!--edit Ground-->
+
+
+<ng-template #contentEdit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New Friend</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="form" [formGroup]="editForm" novalidate  novalidate> 
+      <div class="form-group"> 
+        <label for="id">Id</label> 
+        <div class="input-group"> 
+           <input formControlName="groundId" readonly class="form-control"> 
+        </div> 
+      </div>
+      <div class="form-group form-floating">
+        <input type="text"
+        formControlName="groundName" 
+        placeholder="Enter Name"
+        class="form-control" required
+        />
+        <label>Enter Name</label>
+      </div>
+      <div class="form-group form-floating">
+          <input type="text"
+          formControlName="groundTiming" placeholder="Available Timing" 
+          class="form-control"  />
+          <label>Enter the Available Timing</label>
+      </div>
+      <div class="form-group form-floating">
+        <input type="text"
+        formControlName="capacity" placeholder="capacity" 
+        class="form-control"  />
+        <label>Enter the capacity</label>
+    </div>
+        <div class="form-group form-floating">
+          <input type="text"
+          formControlName="groundAddress" placeholder="Ground Address" 
+           class="form-control"  />
+           <label>Enter the address</label>
+        </div>
+        <div class="form-group form-floating">
+          <input type="text"
+          formControlName="imageURL" placeholder="ImageUrl" 
+           class="form-control"  />
+           <label>Enter the Image Url</label>
+        </div>
+        <div class="form-group form-floating">
+          <input type="text"
+          formControlName="price" placeholder="Price" 
+          class="form-control" />
+          <label>Enter the Price</label>
+        </div>
+        <div class="form-group  form-floating">
+          <input type="text" formControlName="groundDescription" placeholder="Ground Description" 
+          class="form-control"  />
+          <label>Description</label>
+        </div>
+        
+<div class="border text-center">
+     <button  data-dismiss="modal" class="btn btn-info" (click)="onSave()"  >edit</button>
+    </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">cancel</button>
+  </div>
+</ng-template>
+
+
+
+
+
+<!--delete ground-->
+<ng-template #contentDelete let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Confirm Delete</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h2>Are you sure you want to delete this ground.{{deleteId}}</h2>
+    <div class="border text-center"> 
+      <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()" >Yes, Delete!</button> 
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+  </div>
+</ng-template>
+
+
+<!-- not found notification -->
+
+        <div  *ngIf="grounds?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+          <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading">NO GROUNDS FOUND!</h4>
+            <p>No ground were found</p>
+          </div>
+        </div>
+
+
+
+    </div>
+</div>
+   
+<!--
+
+  
+
+
+
+-->

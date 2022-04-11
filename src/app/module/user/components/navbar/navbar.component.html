@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#"><h4>INDOOR TURF</h4><h6>User Page</h6></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarResponsive">
+            <ul class="navbar-nav ml-auto col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" id="homeButton" routerLink="./dashboard">Home
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" id="DashBoardButton" routerLink="./ground">Dashboard
+                        <span class="sr-only"></span>
+                    </a>
+                 </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" id="myBookingButton" routerLink="./bookedgrounds">Mybooking
+                        <span class="sr-only"></span>
+                     </a>
+                 </li>
+            </ul>
+                <li class=" nav-item" role="button" >
+                    <a class="nav-link text-dark btn btn-primary btn-sm me-3" id="logout" (click)="logout()">Logout</a>
+                </li>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>
