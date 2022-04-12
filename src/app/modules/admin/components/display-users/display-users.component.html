@@ -34,13 +34,10 @@
                           </td>
                           
                           <td>
-                            <select class="form-control category-select" id="exampleFormControlSelect1">
-                            
-                              <option>Admin</option>
-                              <option>User</option>
-                              
-                            </select>
-                            <span class="text-muted">{{user.roles[0]}}</span><br>
+                  <div class="category-select  bg-info ">
+                            <span class="text-muted ms-3" *ngFor="let role of user.roles">
+                              {{role.name}}</span><br>
+                   </div>
                           </td>
                           <td>
                             <span class="text-muted">{{user.mobile}}</span><br>
@@ -53,7 +50,7 @@
                           <td>
                           
                             <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" (click)="openDeleteUser(contentDeleteUser, user)"><i class="fa fa-trash"></i> </button>
-                            <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" (click)="openEditUser(contentEdituser,user)"><i class="fa fa-edit"></i> </button>
+                            <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" (click)="openEditUser(contentEdituser,user)"><i class="fa fa fa-eye"></i> </button>
                             
                           </td>
 
@@ -82,7 +79,7 @@
       
       <ng-template #contentEdituser let-modal>
         <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">New Friend</h4>
+          <h4 class="modal-title text-center" id="modal-basic-title">View User</h4>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -99,19 +96,19 @@
               <input type="text"
               formControlName="username" 
               placeholder="Enter Name"
-              class="form-control" required />
+              class="form-control" required readonly />
               <label>Enter Name</label>
             </div>
             <div class="form-group form-floating">
                 <input type="text"
                 formControlName="email" placeholder="email" 
-                class="form-control"  required />
+                class="form-control"  required readonly />
                 <label>Enter the email</label>
             </div>
             <div class="form-group form-floating">
               <input type="text"
               formControlName="mobile" placeholder="mobile" 
-              class="form-control"  required/>
+              class="form-control"  required readonly/>
               <label>Enter the mobile</label>
           </div>
 
@@ -124,14 +121,10 @@
               <div class="form-group form-floating">
                 <input type="text"
                 formControlName="bookings" placeholder="bookings" 
-                 class="form-control" required />
-                 <label>Enter the bookings</label>
+                 class="form-control" required readonly/>
+                 
+                 <label>No  bookings</label>
               </div>
-    
-              
-      <div class="border text-center">
-           <button  data-dismiss="modal" class="btn btn-info" (click)="onSaveuser()"  >edit</button>
-          </div>
           </form>
         </div>
         <div class="modal-footer">

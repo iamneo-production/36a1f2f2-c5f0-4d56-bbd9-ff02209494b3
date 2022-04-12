@@ -6,34 +6,44 @@
                 <div class="card-body px-5">
                   <div class="card-header mb-2">
                     <div class="card-title"><h5>Add User</h5></div></div>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()" > 
+                    <form #signupForm="ngForm" (ngSubmit)="signupUser()" class="form-detail">
         <div class="form-group form-floating">
-            <input type="text" placeholder="Enter User Name" id="username" [(ngModel)]="user.username"
-            class="form-control" formControlName="username"/>
+          <input type="text" id="userName" name="userName" placeholder="username" class="form-control form-control-lg" [(ngModel)]="user.username" required #userName="ngModel"
+          [class.is-invalid]="userName.invalid && userName.touched"/>
             <label>Enter UserName</label>
         </div>
           <div class="form-group form-floating">
-            <input type="email" placeholder="Enter Email-id" id="email" [(ngModel)]="user.email"
-            class="form-control" formControlName="email"/>
+            <input type="email" name="email" id="email"placeholder="Email" class="form-control form-control-lg" [(ngModel)]="user.email" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+                       #email="ngModel" 
+                      [class.is-invalid]="email.invalid && email.touched"
+                      />
             <label>Enter Email-id</label>
+            <div *ngIf="email.errors && (email.invalid && email.touched)" >
+              <small class="text-danger" *ngIf="email.errors?.['required']">emailId is required.  </small>
+             <small  class="text-danger"  *ngIf="email.invalid">enter the valid email</small>
+            </div>
         </div>
           <div class="form-group form-floating">
-            <input type="tel" placeholder="Enter Mobile Number" id="mobileNumber" [(ngModel)]="user.mobile"
-            class="form-control" formControlName="mobileNumber"/>
+            <input type="mobile" id="mobile" name="mobile" placeholder="mobile" class="form-control form-control-lg" [(ngModel)]="user.mobile" required #mobile="ngModel" pattern="^((\\+91-?)|0)?[0-9]{10}$"
+						[class.is-invalid]="mobile.invalid && mobile.touched"/>
             <label>Enter Mobile Number</label>
+            <small class="text-danger" [class.d-none]="mobile.valid || mobile.untouched"> mobile is required field</small>
+            <small class="text-danger" *ngIf="mobile.errors?.['pattern']">Invalid mobile</small>
         </div>
           <div class="form-group form-floating">
-            <input type = "password" placeholder="Enter Password" id="password" [(ngModel)]="user.password"
-            class="form-control" formControlName="password"/>
+            <input type="password" id="pwd" name="password" placeholder="password" class="form-control form-control-lg" [(ngModel)]="user.password" required #password="ngModel"
+                      [class.is-invalid]="password.invalid && password.touched"/>
             <label>Enter Password</label>
+            <small class="text-danger" [class.d-none]="password.valid || password.untouched"> Password is required field</small>
         </div>
         <div class="form-group form-floating">
-            <input type = "password" placeholder="Re-Enter Password" id="confirmPassword" 
-            class="form-control" formControlName="confirmPassword"/>
+          <input type="password" id="cpwd" name="cpassword" placeholder="cpassword" class="form-control form-control-lg" required   #cpassword="ngModel" (ngModel)="user.password"
+          [class.is-invalid]="password.invalid && password.touched"/>
             <label>Re-Enter Password</label>
+            <small class="text-danger" [class.d-none]="cpassword.value ==password.value || cpassword.untouched"> Password is unmatched</small>
         </div>
         
-        <button type="submit" class="btn btn-primary me-3" (change)="userSignup()">Submit</button>
+        <button type="submit" [disabled]="signupForm.form.invalid" class="btn btn-primary me-3" >Submit</button>
         <a routerLink="../displayusers"  class="btn btn-primary me-3" class="btn btn-white-link">Cancel</a>
         </form>
        </div>   

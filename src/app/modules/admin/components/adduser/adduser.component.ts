@@ -12,43 +12,30 @@ import { SignupService } from 'src/app/service/signup.service';
 })
 export class AdduserComponent implements OnInit {
   user=new User();
-  form=new FormGroup({
-    email: new FormControl(''),
-    username: new FormControl(''),
-    mobileNumber: new FormControl(''),
-    password: new FormControl(''), 
-    confirmPassword: new FormControl('') , 
-    userRole:new FormControl('')
-});
+  msg!: string;
 
   
 
-  constructor(private formbuilder:FormBuilder,private service:SignupService,private router:Router) {}
+  constructor(private serv:SignupService,private router:Router) {}
 
   ngOnInit(): void {
-    this.form = this.formbuilder.group({
-      username: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      mobileNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required],
-      userRole:['', Validators.required]
-  }, );
+    
   }
   onSubmit(): void {
   }
-  userSignup(){
+  signupUser(){
+    this.serv.signupUser(this.user).subscribe(
+      {
+        next: data=>{
+          console.log("registered succesfully")
+          this.router.navigate(['/login']);
+        },
+        error: err=>{
+          console.log(this.user);
+          console.log(err.msg);
+          this.msg='bad details';
+        }
+      });
 
-    this.service.signupUser(this.user).subscribe({
-      next: data=>{
-        console.log(data);
-        alert("User added Successfully")
-        this.router.navigate(['/admin/displayusers']);
-      },
-      error: err=>{
-        console.log(err);
-        alert(err);
-      }
-    });
   }
 }

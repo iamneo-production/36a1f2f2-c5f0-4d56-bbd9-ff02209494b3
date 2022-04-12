@@ -7,6 +7,7 @@ import { GroundComponent } from './components/ground/ground.component';
 import { EditbookingComponent } from './components/editbooking/editbooking.component';
 import { DeletebookingComponent } from './components/deletebooking/deletebooking.component';
 import { AddbookingComponent } from './components/addbooking/addbooking.component';
+import { UserhomeComponent } from './components/userhome/userhome.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
       { path: 'bookedgrounds', component: AddbookingComponent },
       { path: 'deletebookedgrounds/:id', component: DeletebookingComponent },
       { path: 'editbookedgrounds/:id', component: EditbookingComponent },
-      { path: '', redirectTo: '/user/dashboard', pathMatch: 'full' },
+      {path:'home',component:UserhomeComponent},
+      { path: '', redirectTo: '/user/home', pathMatch: 'full' },
     ],
   },
 ];

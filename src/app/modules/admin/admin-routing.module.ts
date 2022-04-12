@@ -28,7 +28,7 @@ const routes: Routes = [
       { path: 'edituser', component: EdituserComponent },
       { path: 'deleteuser', component: DeleteuserComponent },
       {path:'grounddetails', component:GrounddetailsComponent},
-      { path: '', redirectTo: '/admin/addGround', pathMatch: 'full' },
+      { path: '', redirectTo: '/admin/home', pathMatch: 'full' },
 
     ],
   },

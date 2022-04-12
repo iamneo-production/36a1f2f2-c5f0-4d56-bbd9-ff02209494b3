@@ -1,10 +1,12 @@
 import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalDismissReasons,NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { User } from 'src/app/classes/user';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from './../../../../service/user.service';
 import { Roles } from 'src/app/classes/roles';
+import { Userd } from 'src/app/classes/userd';
+
+
 
 @Component({
   selector: 'app-display-users',
@@ -12,13 +14,14 @@ import { Roles } from 'src/app/classes/roles';
   styleUrls: ['./display-users.component.scss']
 })
 export class DisplayUsersComponent implements OnInit {
-users!:User[];
-editUser!: User;
+
+users!:Userd[];
+editUser!: Userd;
 editFormUser!:FormGroup;
-roles!:string[];
+roles!:Roles[];
+role!:Roles;
   closeResult!: string;
   delId: string | undefined;
-
   constructor(private formbuilder:FormBuilder,private modalService:NgbModal,private httpClient:HttpClient,private service:UserService) {
 
 
@@ -48,6 +51,8 @@ private getUsers(){
      
     });
 }
+
+
 
 onSaveuser(){
 
@@ -86,7 +91,7 @@ onSaveuser(){
 
 }
 
-openEditUser(contentEdit: any,user: User){
+openEditUser(contentEdit: any,user: Userd){
   this.modalService.open(contentEdit, {
     centered: true,
     backdrop: 'static',
@@ -101,7 +106,7 @@ openEditUser(contentEdit: any,user: User){
 }
 
 
-openDeleteUser(contentDelete: any, user:User) {
+openDeleteUser(contentDelete: any, user:Userd) {
   this.delId = user.userId;
 this.modalService.open(contentDelete, {
  backdrop: 'static',

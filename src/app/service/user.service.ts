@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../classes/user';
+import { Userd } from '../classes/userd';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,9 @@ export class UserService {
   
   private baseURL = "https://8080-cefcccadbaddebfdaffdacedbbebcbf.examlyiopb.examly.io/api/v1/Users";
   
-  getUserList(): Observable<User[]>
+  getUserList(): Observable<Userd[]>
   {
-    return this.http.get<User[]>("http://localhost:8080/admin/getUsers");
+    return this.http.get<Userd[]>("http://localhost:8080/admin/getUsers");
   }
   createUser(user:User):Observable<any>
   {

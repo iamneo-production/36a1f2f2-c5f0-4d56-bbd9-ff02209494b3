@@ -28,4 +28,7 @@ export class GroundService {
   bookGround(id:string):Observable<any>{
     return this.http.post<any>("http://localhost:8080/user/ground",id);
   }
+  getAllGroundsUser():Observable<ground[]>{
+    return this.http.get<ground[]>("http://localhost:8080/user/dashboard");
+  }
 }

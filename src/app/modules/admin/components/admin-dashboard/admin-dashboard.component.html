@@ -1,4 +1,4 @@
-<div class="bgbar vh-100" >
+<div class="bgbar vh-auto" >
     <div class="container pt-5 pb-5" id="dashBoard">   
          
       
@@ -49,7 +49,7 @@
 
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">New Friend</h4>
+    <h4 class="modal-title text-center" id="modal-basic-title">Add ground</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -69,36 +69,36 @@
       <div class="form-group form-floating">
           <input type="text"
           id="groundTiming" name="groundTiming" placeholder="Available Timing" ngModel
-          class="form-control"  />
+          class="form-control mb-2"  />
           <label>Enter the Available Timing</label>
       </div>
       <div class="form-group form-floating">
         <input type="text"
         id="capacity" name="capacity" placeholder="capacity" ngModel
-        class="form-control"  />
+        class="form-control mb-2"  />
         <label>Enter the capacity</label>
     </div>
         <div class="form-group form-floating">
           <input type="text"
            id="groundAddress" name="groundAddress" placeholder="Ground Address" ngModel
-           class="form-control"  />
+           class="form-control mb-2"  />
            <label>Enter the address</label>
         </div>
         <div class="form-group form-floating">
           <input type="text"
            id="imageUrl" name="imageURL" placeholder="ImageUrl" ngModel
-           class="form-control"  />
+           class="form-control mb-2"  />
            <label>Enter the Image Url</label>
         </div>
         <div class="form-group form-floating">
           <input type="text"
           id="price" name="price" placeholder="Price" ngModel
-          class="form-control" />
+          class="form-control mb-2" />
           <label>Enter the Price</label>
         </div>
         <div class="form-group  form-floating">
           <input type="text" name="groundDescription" placeholder="Ground Description" ngModel
-         id="groundDescription" class="form-control"  />
+         id="groundDescription" class="form-control mb-2"  />
           <label>Description</label>
         </div>
         
@@ -132,50 +132,50 @@
       <div class="form-group"> 
         <label for="id">Id</label> 
         <div class="input-group"> 
-           <input formControlName="groundId" readonly class="form-control"> 
+           <input formControlName="groundId" readonly class="form-control mb-2"> 
         </div> 
       </div>
       <div class="form-group form-floating">
         <input type="text"
         formControlName="groundName" 
         placeholder="Enter Name"
-        class="form-control" required
+        class="form-control mb-2" required
         />
         <label>Enter Name</label>
       </div>
       <div class="form-group form-floating">
           <input type="text"
           formControlName="groundTiming" placeholder="Available Timing" 
-          class="form-control"  />
+          class="form-control mb-2"  />
           <label>Enter the Available Timing</label>
       </div>
       <div class="form-group form-floating">
         <input type="text"
         formControlName="capacity" placeholder="capacity" 
-        class="form-control"  />
+        class="form-control mb-2"  />
         <label>Enter the capacity</label>
     </div>
         <div class="form-group form-floating">
           <input type="text"
           formControlName="groundAddress" placeholder="Ground Address" 
-           class="form-control"  />
+           class="form-control mb-2"  />
            <label>Enter the address</label>
         </div>
         <div class="form-group form-floating">
           <input type="text"
           formControlName="imageURL" placeholder="ImageUrl" 
-           class="form-control"  />
+           class="form-control mb-2"  />
            <label>Enter the Image Url</label>
         </div>
         <div class="form-group form-floating">
           <input type="text"
           formControlName="price" placeholder="Price" 
-          class="form-control" />
+          class="form-control mb-2" />
           <label>Enter the Price</label>
         </div>
         <div class="form-group  form-floating">
           <input type="text" formControlName="groundDescription" placeholder="Ground Description" 
-          class="form-control"  />
+          class="form-control mb-2"  />
           <label>Description</label>
         </div>
         
@@ -203,8 +203,8 @@
   </div>
   <div class="modal-body">
     <h2>Are you sure you want to delete this ground.{{deleteId}}</h2>
-    <div class="border text-center"> 
-      <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()" >Yes, Delete!</button> 
+    <div class="border text-center  mt-1 mb-1"> 
+      <button data-dismiss="modal" class="btn btn-danger mb-1" (click)="onDelete()" >Yes, Delete!</button> 
     </div>
   </div>
   <div class="modal-footer">

@@ -56,9 +56,6 @@ export class AdminDashboardComponent implements OnInit {
      });
   }
 
-  editGround(id:string){
-    this.router.navigate(['/admin/editGround' ,id]);
-  }
   onSave() {
     const editURL = 'http://localhost:8080/admin/editGround/' + this.editForm.value.groundId ;
     console.log(this.editForm.value);
@@ -69,9 +66,7 @@ export class AdminDashboardComponent implements OnInit {
       });
   }
 
-  deleteGround(id:string){
-    this.router.navigate(['/admin/deleteGround' ,id]);
-  }
+
 
   openDelete(contentDelete: any, ground: ground) {
        this.deleteId = ground.groundId;
@@ -91,22 +86,7 @@ export class AdminDashboardComponent implements OnInit {
       });
   }
 
-  public onaddground(addForm: NgForm): void{
-document.getElementById('add-ground-')?.click();
 
-   this.service.addGround(addForm.value).subscribe({
-     next: (response:any)=>{
-       console.log(response);
-       this.getGrounds();
-       addForm.reset();
-     },
-    error:  (err:HttpErrorResponse)=>{
-       alert(err.message);
-       addForm.reset();
-     }
-    });
-
-  }
   public onupdateground(ground: ground): void{
        this.service.editGround(ground).subscribe({
          next: (response:any)=>{
@@ -120,6 +100,8 @@ document.getElementById('add-ground-')?.click();
     
       }
 
+
+       //search 
       public searchground(key:string):void{
         const results:ground[]=[];
         for(const ground of this.grounds ){
@@ -134,8 +116,9 @@ document.getElementById('add-ground-')?.click();
           this.getGrounds();
         }
       }
+
+      //add ground 
       onSubmitadd(f: NgForm) {
-        
         this.service.addGround(f.value)
           .subscribe((result) => {
             this.ngOnInit(); //reload the table
