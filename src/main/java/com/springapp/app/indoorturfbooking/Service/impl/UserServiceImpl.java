@@ -3,6 +3,7 @@ package com.springapp.app.indoorturfbooking.Service.impl;
 import com.springapp.app.indoorturfbooking.Entity.Role;
 import com.springapp.app.indoorturfbooking.Entity.User;
 import com.springapp.app.indoorturfbooking.Entity.UserDto;
+import com.springapp.app.indoorturfbooking.Exception.UserDataExistsException;
 import com.springapp.app.indoorturfbooking.Repository.RoleRepository;
 import com.springapp.app.indoorturfbooking.Repository.UserRepository;
 
@@ -18,10 +19,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service(value="userService")
 public class UserServiceImpl implements UserDetailsService, UserService {
@@ -56,18 +54,50 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     }
 
     @Override
-    public User save(UserDto user) {
+    public User save(UserDto user) throws UserDataExistsException {
+        User existingWithEmail = userRepository.findByEmail(user.getEmail());
+        User existingWithMobile = userRepository.findByMobile(user.getMobile());
+
+        if(existingWithEmail != null && existingWithMobile != null)
+            throw new UserDataExistsException("User with the provided email and mobile already exists! :(");
+
+        if(existingWithEmail != null)
+            throw new UserDataExistsException("User with the provided email already exists! :(");
+
+        if(existingWithMobile != null)
+            throw new UserDataExistsException("User with the provided mobile already exists! :(");
         User nUser=user.getUserFromDto();
         nUser.setPassword(bCryptEncoder.encode(user.getPassword()));
+
+
+
 
         Role role = roleService.findByName("USER");
         Set<Role> roleSet=new HashSet<>();
         roleSet.add(role);
+        nUser.setRoles(roleSet);
+        return userRepository.save(nUser);
+    }
 
-        if(nUser.getEmail().split("@")[1].equals("admin.edu")){
-            role=roleService.findByName("ADMIN");
+    public User savea(UserDto user) throws UserDataExistsException {
+        User existingWithEmail = userRepository.findByEmail(user.getEmail());
+        User existingWithMobile = userRepository.findByMobile(user.getMobile());
+
+        if(existingWithEmail != null && existingWithMobile != null)
+            throw new UserDataExistsException("User with the provided email and mobile already exists! :(");
+
+        if(existingWithEmail != null)
+            throw new UserDataExistsException("User with the provided email already exists! :(");
+
+        if(existingWithMobile != null)
+            throw new UserDataExistsException("User with the provided mobile already exists! :(");
+
+        User nUser=user.getUserFromDto();
+        nUser.setPassword(bCryptEncoder.encode(user.getPassword()));
+           Role role=roleService.findByName("ADMIN");
+        Set<Role> roleSet=new HashSet<>();
             roleSet.add(role);
-        }
+
         nUser.setRoles(roleSet);
         return userRepository.save(nUser);
     }
@@ -83,6 +113,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     public User findOne(String username) {
         return userRepository.findByUsername(username);
     }
+
 
 
 

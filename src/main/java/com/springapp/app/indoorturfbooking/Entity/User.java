@@ -108,5 +108,11 @@ public class User {
         this.roles = roles;
     }
 
+    public List<Bookings> getBookings() {
+        return bookings;
+    }
 
+    public void setBookings(List<Bookings> bookings) {
+        this.bookings = bookings;
+    }
 }
