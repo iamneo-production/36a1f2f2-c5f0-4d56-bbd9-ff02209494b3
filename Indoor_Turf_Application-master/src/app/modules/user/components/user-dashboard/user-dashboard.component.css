@@ -1,0 +1,13 @@
+.card{
+    width: 18rem;
+    
+}
+.card-title{
+    text-align: center;
+}
+.bgbar{
+    background-color: #cdd2fd;
+}
+.justify-content-center{
+    width: 20cm;
+}

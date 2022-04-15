@@ -1,0 +1,35 @@
+<div class="bgbar">
+    <div class="container pt-5 pb-5" id="dashBoard">
+        <form class="d-flex justify-content-center">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" id="searchButton" type="submit">Search</button>
+          </form>
+        <div class="col-12">
+            <div class="d-flex flex-wrap justify-content-around pt-5">
+            <div *ngFor="let ground of grounds">
+             <div class="card shadow mt-2 mb-4" id="adminProfileView">
+                <img class="card-img-top" src="{{ground.imageURL}}" class="rounded" width="286" height="236" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title"><a [title]="ground.groundName + ' details'">
+                    {{ ground.groundName }}
+                  </a></h4>
+                  <p class="card-text"*ngIf="ground.groundAddress">
+                    <strong> Place:</strong> {{ ground.groundAddress }}</p>
+                  <p class="card-text"*ngIf="ground.groundDescription">
+                      <strong> Description:</strong> {{ ground.groundDescription }}</p>
+                      <p class="card-text"*ngIf="ground.capacity">
+                        <strong> Capacity:</strong> {{ ground.capacity }}</p>
+                      <p class="card-text"*ngIf="ground.price">
+                       <strong> Price:</strong> {{ ground.price }}</p>
+                         
+                    <a class="btn btn-primary me-2" (click)=editGround(ground.groundId) id="editGround">Edit Ground</a>
+                    <a class="btn btn-danger" (click)=deleteGround(ground.groundId) id="deleteGround">Delete ground</a>
+                </div>
+            </div>
+        </div>
+        </div>
+            
+        </div>
+    </div>
+</div>
+   

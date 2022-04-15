@@ -1,0 +1,47 @@
+<div class="bg">
+    <div class="container pt-5 pb-5">
+      <div class="row justify-content-center h-100">
+        <div class="d-flex flex-wrap justify-content-center">
+            <div class="card shadow mt-2 ">
+                <div class="card-body px-5">
+                  <div class="card-header mb-2">
+                    <div class="card-title"><h5>Edit User</h5></div></div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" > 
+        <div class="form-group form-floating">
+            <input type="text" placeholder="Enter User Name" id="userName" [(ngModel)]="user.userName"
+            class="form-control" formControlName="userName"/>
+            <label>Enter UserName</label>
+        </div>
+          <div class="form-group form-floating">
+            <input type="email" placeholder="Enter Email-id" id="email" [(ngModel)]="user.email"
+            class="form-control" formControlName="email"/>
+            <label>Enter Email-id</label>
+        </div>
+          <div class="form-group form-floating">
+            <input type="tel" placeholder="Enter Mobile Number" id="mobile" [(ngModel)]="user.mobile"
+            class="form-control" formControlName="mobile"/>
+            <label>Enter Mobile Number</label>
+        </div>
+          <div class="form-group form-floating">
+            <input type = "password" placeholder="Enter Password" id="password" [(ngModel)]="user.password"
+            class="form-control" formControlName="password"/>
+            <label>Enter Password</label>
+        </div>
+        <div class="form-group form-floating">
+            <input type = "password" placeholder="Re-Enter Password" id="confirmPassword" 
+            class="form-control" formControlName="confirmPassword"/>
+            <label>Re-Enter Password</label>
+        </div>
+        <div class="form-group">
+          <input type = "hidden" placeholder="userRole" id="role" value="user" [(ngModel)]="user.role"
+          class="form-control" formControlName="role"/>
+        </div>
+        <button type="submit" class="btn btn-primary me-3" (change)="editUser()">Submit</button>
+        <a routerLink="../displayusers" href="" class="btn btn-white-link">Cancel</a>
+        </form>
+       </div>   
+    </div>  
+    </div>  
+      </div>
+    </div>  
+    </div>

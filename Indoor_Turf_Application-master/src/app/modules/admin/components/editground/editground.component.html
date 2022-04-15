@@ -1,0 +1,56 @@
+<div class="bgbar">
+    <div class="container pt-5 pb-5">
+        <div class="row justify-content-center h-100">
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="card shadow mt-2 ">
+                    <div class="card-body px-5">
+                      <div class="card-header mb-2">
+                        <div class="card-title"><h5>Edit Ground</h5></div></div>
+            <form [formGroup]="editGroundForm" class="form"> 
+              <div class="form-group form-floating">
+                <input type="text"
+                id="editName" placeholder="Edit Name" [(ngModel)]="ground.groundName"
+                class="form-control" formControlName="editName" />
+                <label>Enter Name</label>
+              </div>
+              <div class="form-group form-floating">
+                  <input type="text"
+                  id="editTiming" placeholder="Edit Timing" [(ngModel)]="ground.capacity"
+                  class="form-control" formControlName="editCapacity" />
+                  <label>Enter Capacity</label>
+              </div>
+                <div class="form-group form-floating">
+                  <input type="text"
+                   id="editAddress" placeholder="Edit Address" [(ngModel)]="ground.groundAddress"
+                   class="form-control" formControlName="editAddress" />
+                   <label>Enter the Ground address</label>
+                </div>
+                <div class="form-group form-floating">
+                  <input type="text"
+                   id="editImageUrl" placeholder="ImageUrl" [(ngModel)]="ground.imageURL"
+                   class="form-control" formControlName="editImageUrl" />
+                   <label>Enter the Image Url</label>
+                </div>
+                <div class="form-group form-floating">
+                  <input type="text"
+                  id="editPrice" placeholder="Price" [(ngModel)]="ground.price"
+                  class="form-control" formControlName="editPrice"/>
+                  <label>Enter the Price</label>
+                </div>
+                <div class="form-group  form-floating">
+                  <input type="text" placeholder="Ground Description" [(ngModel)]="ground.groundDescription"
+                 id="editDescription" class="form-control" formControlName="editDescription" />
+                  <label>Description</label>
+                </div>
+  
+               <button class="btn btn-primary me-2" type="submit" id="updateButton" (click)=handleGround()>Update</button>
+               <a routerLink="../dashboard" href="" class="btn btn-white-link">Cancel</a>
+              </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+  

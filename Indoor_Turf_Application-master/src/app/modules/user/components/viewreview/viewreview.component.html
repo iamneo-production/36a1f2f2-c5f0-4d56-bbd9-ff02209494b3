@@ -1,0 +1,34 @@
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-sm border" id="list">
+        <br>
+        
+          <br>
+    <h2> Ground Reviews </h2>
+    <table class = "table table-bordered">
+        <thead>
+            <tr>
+                <th id="list-title">Review Id</th>
+                <th id="list-title">User id</th>
+                <th id="list-title">Ground id</th>
+                <th id="list-title">Review</th>
+              
+                <th colspan="2" id="list-title">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let review of reviews" >
+               <td id="list-title">{{review.id}}</td>
+                <td id="list-title"> {{ review.userId}} </td>
+                <td id="list-title">{{review.groundId}}</td>
+                <td id="list-title"> {{ review.review}} </td>
+                <td><button type="button" (click) = "editReview(review.id)" class = "btn btn-primary"><i class="fa fa-pencil"></i></button></td>
+                <td><button type="button" (click) = "deleteReview(review.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+
+            </tr>
+            
+        </tbody>
+    </table>
+    </div>

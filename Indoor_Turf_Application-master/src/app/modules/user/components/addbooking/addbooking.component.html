@@ -1,0 +1,38 @@
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container-sm border" id="list">
+      <br>
+      
+        <br>
+  <h2> Ground Reviews </h2>
+  <table class = "table table-bordered">
+      <thead>
+          <tr>
+              <th id="list-title">Ground Id</th>
+              <th id="list-title">From Date</th>
+              <th id="list-title">To Date</th>
+              <th id="list-title">Description</th>
+              <th id="list-title">Price</th>
+              <th colspan="2" id="list-title">Action</th>
+              <th id="review">Review</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor = "let booking of bookings" >
+             <td id="list-title">{{booking.groundId}}</td>
+              <td id="list-title"> {{booking.fromDate}} </td>
+              <td id="list-title">{{booking.toDate}}</td>
+              <td id="list-title"> {{ booking.description}} </td>
+              <td id="list-title"> {{ booking.price}} </td>
+              <td><button type="button" (click) = "editBooking(booking.bookingId)" class = "btn btn-primary"><i class="fa fa-pencil"></i></button></td>
+              <td><button type="button" (click) = "deleteBooking(booking.bookingId)" class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+              <li class=" nav-item" role="button" >
+                <a class="nav-link text-dark btn btn-primary btn-sm me-3" id="review" (click)="addReview(booking.groundId)">Add Review</a>
+            </li>
+          </tr>
+          
+      </tbody>
+  </table>
+  </div>

@@ -1,0 +1,52 @@
+<div class="bgbar">
+  <div class="container pt-5 pb-5">
+      <div class="row justify-content-center h-100">
+          <div class="d-flex flex-wrap justify-content-center">
+              <div class="card shadow mt-2 ">
+                  <div class="card-body px-5">
+                  <h5 class="card-title">Add Ground</h5>
+          <form [formGroup]="addGroundForm" class="form"> 
+              <div class="form-group form-floating">
+                <input type="text"
+                id="GroundName" placeholder="Ground Name" [(ngModel)]="grounds.groundName"
+                class="form-control" formControlName="groundName"/>
+                <label>Ground Name</label>
+              </div>
+              <div class="form-group form-floating">
+                  <input type="text"
+                  id="GroundPrice" placeholder="Ground Price" [(ngModel)]="grounds.price"
+                  class="form-control" formControlName="price"/>
+                  <label>Ground Price</label>
+              </div>
+                <div class="form-group form-floating">
+                  <input type="text"
+                   id="GroundLocation" placeholder="Ground Location" [(ngModel)]="grounds.groundAddress"
+                   class="form-control" formControlName="groundAddress" />
+                   <label>Ground Address</label>
+                </div>
+                <div class="form-group form-floating">
+                  <input type="text"
+                  id="GameType" placeholder="Game Type" [(ngModel)]="grounds.capacity"
+                  class="form-control" formControlName="capacity"/>
+                  <label>Ground Capacity</label>
+                </div>
+                <div class="form-group  form-floating">
+                  <input type="text" placeholder="Ground Description" [(ngModel)]="grounds.groundDescription"
+                 id="GroundDescription" class="form-control" formControlName="groundDescription" />
+                  <label>Ground Description</label>
+                </div>
+                <div class="form-group form-floating">
+                  <input type="text" placeholder="imageUrl" [(ngModel)]="grounds.imageURL" class="form-control" formControlName="imageURL" id="imageFile"/>
+                  <label class="form-label">Image Url</label>
+                </div>
+
+             <button class="btn btn-primary me-2" type="submit" (click)=handleGround() >Save Changes</button>
+             <a routerLink="../editground" href="" class="btn btn-white-link">Cancel</a>
+            </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+  

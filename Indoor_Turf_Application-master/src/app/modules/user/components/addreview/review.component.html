@@ -1,0 +1,27 @@
+<div class="bgbar">
+    <div class="container pt-5 pb-5">
+        <div class="row justify-content-center h-100">
+            <div class="d-flex flex-wrap justify-content-center">
+                <div class="card shadow mt-2 ">
+                    <div class="card-body px-5">
+                    <h5 class="card-title">Add Review</h5>
+            <form [formGroup]="addReviewForm" class="form"> 
+                <div class="form-group form-floating">
+                  <input type="text"
+                  id="GroundName" placeholder="Review" [(ngModel)]="review.review"
+                  class="form-control" formControlName="review"/>
+                  <label>Enter the Review</label>
+                </div>
+                
+  
+               <button class="btn btn-primary me-2" type="submit" (click)=addReview() >Save Changes</button>
+               <a routerLink="" href="" class="btn btn-white-link">Cancel</a>
+              </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+  
