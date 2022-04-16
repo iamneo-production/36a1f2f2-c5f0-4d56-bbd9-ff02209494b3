@@ -14,15 +14,15 @@ public class Review {
     private int id;
     private String review;
     private Long groundId;
-    private int userId;
+    private String userEmail;
 
     public Review() {
     }
 
-    public Review(String review, Long groundId,int userId) {
+    public Review(String review, Long groundId,String userEmail) {
         this.review = review;
         this.groundId = groundId;
-        this.userId = userId;
+        this.userEmail = userEmail;
     }
 
     public int getId() {
@@ -49,11 +49,11 @@ public class Review {
         this.groundId = groundId;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 }

@@ -98,10 +98,10 @@ public class UserController {
         return new ResponseEntity<List<Bookings>>(service.getUserBookings(email), HttpStatus.OK);
     }
 
-    @PostMapping("/addreview/{user_id}/{ground_id}")
-    private String addReview(@RequestBody Review r, @PathVariable(value="user_id") int user_id, @PathVariable(value="ground_id") Long ground_id) throws Exception {
+    @PostMapping("/addreview/{user_email}/{ground_id}")
+    private String addReview(@RequestBody Review r, @PathVariable(value="user_email") String user_email, @PathVariable(value="ground_id") Long ground_id) throws Exception {
         r.setGroundId(ground_id);
-        r.setUserId(user_id);
+        r.setUserEmail(user_email);
 
         if(r!=null){
             service.addReview(r);
