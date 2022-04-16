@@ -23,7 +23,7 @@
                       <p class="card-text"*ngIf="ground.price">
                        <strong> Price:</strong> {{ ground.price }}</p>
                        <a class="btn btn-primary me-2" (click)=viewReview(ground.groundId) id="editGround">Reviews</a>
-                       <a class="btn btn-primary me-2" (click)=addBooking(ground.groundId) id="addGround">Book</a>
+                       <a ><button class="btn btn-primary me-2" [disabled]="ground.status==false" (click)=addBooking(ground.groundId) id="addGround">Book</button></a>
               </div>
           </div>
       </div>

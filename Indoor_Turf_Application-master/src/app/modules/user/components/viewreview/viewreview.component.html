@@ -24,8 +24,8 @@
                 <td id="list-title"> {{ review.userId}} </td>
                 <td id="list-title">{{review.groundId}}</td>
                 <td id="list-title"> {{ review.review}} </td>
-                <td><button type="button" (click) = "editReview(review.id)" class = "btn btn-primary"><i class="fa fa-pencil"></i></button></td>
-                <td><button type="button" (click) = "deleteReview(review.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+                <td><button type="button" [hidden]="review.userId!=loggedUser" (click) = "editReview(review.id)" class = "btn btn-primary"><i class="fa fa-pencil"></i></button></td>
+                <td><button type="button" [hidden]="review.userId!=loggedUser" (click) = "deleteReview(review.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
 
             </tr>
             

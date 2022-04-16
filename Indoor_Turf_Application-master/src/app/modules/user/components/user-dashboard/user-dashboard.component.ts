@@ -30,7 +30,7 @@ export class UserDashboardComponent implements OnInit {
   }
 
   bookGround(id:number){
-    this.router.navigate(['/user/Ground' ,id]);
+    //this.router.navigate(['/user/Ground' ,id]);
   }
 
   viewReview(groundId:number){

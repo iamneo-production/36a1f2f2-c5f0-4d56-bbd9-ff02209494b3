@@ -12,6 +12,7 @@ export class ViewreviewComponent implements OnInit {
 
   reviews!:review[];
   groundId!:number;
+  loggedUser:number=3;
 
   constructor(private router:Router,private service:ReviewServiceService,private route:ActivatedRoute) { 
    

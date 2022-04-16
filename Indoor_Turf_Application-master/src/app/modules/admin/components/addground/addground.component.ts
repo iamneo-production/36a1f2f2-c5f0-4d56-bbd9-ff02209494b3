@@ -69,7 +69,7 @@ this.addGroundForm = this.formBuilder.group({
   ]
 })
 }
-
+error!:string;
 handleGround(){
 
 this.service.addGround(this.grounds).subscribe(
@@ -78,9 +78,8 @@ this.service.addGround(this.grounds).subscribe(
     alert("Ground added Successfully")
     this.router.navigate(['/admin/dashboard']);
   },
-  error=>{
-    console.log(error)
-    alert(error)
+  err=>{
+    this.router.navigate(['/admin/dashboard']);
   }
 )
 }
