@@ -21,7 +21,7 @@ const routes: Routes = [
       { path: 'bookedgrounds/:email', component: AddbookingComponent },
       { path: 'deletebookedgrounds/:bookingId', component: DeletebookingComponent },
       { path: 'editbookedgrounds/:bookingId', component: EditbookingComponent },
-      { path: 'addreview/:userId/:groundId',component:ReviewComponent},
+      { path: 'addreview/:userEmail/:groundId',component:ReviewComponent},
       { path: 'viewreview/:groundId',component:ViewreviewComponent},
       { path: 'editreview/:id/:groundId',component:EditreviewComponent},
       { path: 'deletereview/:id/:groundId',component:DeletereviewComponent},

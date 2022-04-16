@@ -13,6 +13,7 @@ export class AddbookingComponent implements OnInit {
 
   bookings!:booking[];
   email!:string;
+  groundId!:number;
 
   constructor(private router:Router,private service:BookingService,private route:ActivatedRoute) { 
    
@@ -31,6 +32,7 @@ booking=new booking();
     );
   }
 
+
   editBooking(id: number){
     this.router.navigate(['/user/editbookedgrounds', id]);
   }
@@ -41,7 +43,7 @@ booking=new booking();
 
   addReview(id:number){
     //need to pass the userid
-    this.router.navigate(['/user/addreview',3,id]);
+    this.router.navigate(['/user/addreview',"user2@gmaail.com",id]);
   }
 
 }

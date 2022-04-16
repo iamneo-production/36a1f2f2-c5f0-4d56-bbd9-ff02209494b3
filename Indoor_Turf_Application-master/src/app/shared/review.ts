@@ -1,6 +1,6 @@
 export class review{
     id!:number
-    userId!:number
+    userEmail!:string
     groundId!:number
     review!:String
 }

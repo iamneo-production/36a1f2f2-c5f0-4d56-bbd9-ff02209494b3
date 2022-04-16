@@ -11,8 +11,8 @@ export class ReviewServiceService {
   
   constructor(private router:Router,private http:HttpClient) { }
 
-  addReview(userId:number,groundId:number,review:review):Observable<any>{
-    return this.http.post<any>("http://localhost:8080/user/addreview/"+userId+"/"+groundId,review);
+  addReview(userEmail:string,groundId:number,review:review):Observable<any>{
+    return this.http.post<any>("http://localhost:8080/user/addreview/"+userEmail+"/"+groundId,review);
   }
 
   viewReview(groundId:number):Observable<any>{

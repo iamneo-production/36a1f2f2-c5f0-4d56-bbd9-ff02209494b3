@@ -6,13 +6,12 @@
         <br>
         
           <br>
-    <h2> Ground Reviews </h2>
+    <h2>Reviews For Ground : {{name}}</h2>
     <table class = "table table-bordered">
         <thead>
             <tr>
                 <th id="list-title">Review Id</th>
-                <th id="list-title">User id</th>
-                <th id="list-title">Ground id</th>
+                <th id="list-title">User</th>
                 <th id="list-title">Review</th>
               
                 <th colspan="2" id="list-title">Action</th>
@@ -21,11 +20,10 @@
         <tbody>
             <tr *ngFor = "let review of reviews" >
                <td id="list-title">{{review.id}}</td>
-                <td id="list-title"> {{ review.userId}} </td>
-                <td id="list-title">{{review.groundId}}</td>
+                <td id="list-title"> {{ review.userEmail}} </td>
                 <td id="list-title"> {{ review.review}} </td>
-                <td><button type="button" [hidden]="review.userId!=loggedUser" (click) = "editReview(review.id)" class = "btn btn-primary"><i class="fa fa-pencil"></i></button></td>
-                <td><button type="button" [hidden]="review.userId!=loggedUser" (click) = "deleteReview(review.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+                <td><button type="button" [hidden]="!(review.userEmail==(loggedUser))" (click) = "editReview(review.id)" class = "btn btn-primary"><i class="fa fa-pencil"></i></button></td>
+                <td><button type="button" [hidden]="!(review.userEmail==(loggedUser))" (click) = "deleteReview(review.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
 
             </tr>
             

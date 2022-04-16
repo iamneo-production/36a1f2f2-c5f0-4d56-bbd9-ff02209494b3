@@ -6,18 +6,6 @@
                   <div class="card-body px-5">
                   <h5 class="card-title">Edit Booked Ground</h5>
           <form [formGroup]="editBookGroundForm" class="form"> 
-              <div class="form-group form-floating">
-                <input type="date"
-                id="GroundName" placeholder="Enter From Date" [(ngModel)]="booking.fromDate"
-                class="form-control" formControlName="fromDate"/>
-                <label>FromDate</label>
-              </div>
-              <div class="form-group form-floating">
-                  <input type="date"
-                  id="GroundPrice" placeholder="Enter To date" [(ngModel)]="booking.toDate"
-                  class="form-control" formControlName="toDate"/>
-                  <label>ToDate</label>
-              </div>
                 <div class="form-group form-floating">
                   <input type="number"
                    id="GroundLocation" placeholder="Enter Number of Persons" [(ngModel)]="booking.numberOfPersons"

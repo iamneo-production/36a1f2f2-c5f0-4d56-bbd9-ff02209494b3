@@ -13,7 +13,7 @@ import { review } from 'src/app/shared/review';
 })
 export class ReviewComponent implements OnInit {
 
-  userId!:number
+  userEmail!:string
   groundId!:number
 
   addReviewForm: FormGroup =new FormGroup({
@@ -23,7 +23,7 @@ export class ReviewComponent implements OnInit {
 
   review=new review();
   ngOnInit(): void {
-    this.userId=this.route.snapshot.params['userId'];
+    this.userEmail=this.route.snapshot.params['userEmail'];
     this.groundId=this.route.snapshot.params['groundId'];
   this.addReviewForm = this.formbuilder.group({
     review: [
@@ -37,7 +37,7 @@ export class ReviewComponent implements OnInit {
   
   addReview(){
   
-  this.service.addReview(this.userId,this.groundId,this.review).subscribe(
+  this.service.addReview(this.userEmail,this.groundId,this.review).subscribe(
     data=>{
       console.log(data)
       alert("Review added Successfully")

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { review } from 'src/app/shared/review';
 import { ReviewServiceService } from 'src/app/services/review-service.service';
+import { GroundService } from 'src/app/services/ground.service';
+import { Ground } from 'src/app/shared/grounds';
+import { ground } from 'src/app/shared/ground';
 
 @Component({
   selector: 'app-viewreview',
@@ -12,14 +15,17 @@ export class ViewreviewComponent implements OnInit {
 
   reviews!:review[];
   groundId!:number;
-  loggedUser:number=3;
+  loggedUser:string="user2@gmaail.com";
+  ground!:ground;
+  name!:String;
 
-  constructor(private router:Router,private service:ReviewServiceService,private route:ActivatedRoute) { 
+  constructor(private router:Router,private service:ReviewServiceService,private route:ActivatedRoute,private groundservice:GroundService) { 
    
 }
 review=new review();
   ngOnInit(): void {
     this.groundId=this.route.snapshot.params['groundId'];
+    this.findGround();
     this.viewReview();
   }
   viewReview(){
@@ -27,6 +33,15 @@ review=new review();
       data=>{
        this.reviews=data;
        console.log("Success");
+      }
+    );
+  }
+
+  findGround(){
+    this.groundservice.getGroundById(this.groundId).subscribe(
+      data=>{
+        this.ground=data;
+        this.name=this.ground.groundName;
       }
     );
   }
