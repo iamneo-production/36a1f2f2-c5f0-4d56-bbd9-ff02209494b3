@@ -5,6 +5,8 @@ import { tap } from 'rxjs/operators';
 import { User } from '../classes/user';
 import { SignupService } from './signup.service';
 import { Router } from '@angular/router';
+import { Token } from '../classes/token';
+import { Userd } from 'src/app/classes/userd';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +15,8 @@ export class AuthServiceService {
   private readonly TOKEN_NAME='Access';
   isLoggedIn=this._isLoggedIn.asObservable();
   user!: User;
-  
+  public usermail!:string;
+
   get token():any{
     return localStorage.getItem(this.TOKEN_NAME);
   }
@@ -28,7 +31,6 @@ export class AuthServiceService {
         this._isLoggedIn.next(true);
         localStorage.setItem(this.TOKEN_NAME,response.token);
         this.user=this.getUser(response.token);
-        
       })
     );
   }
@@ -39,11 +41,37 @@ return JSON.parse(atob(token.split('.')[1])) as User;
   }
   else return null;
 }
+
+getusermail(){
+  this.serv.getuseremail().subscribe(
+    data=>{
+      localStorage.setItem('email',data);
+    }
+  )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 logout(){
   localStorage.clear();
   this.router.navigate(['/login']);
   this._isLoggedIn.next(false);
 }
+
+
+
+
 }
 
 

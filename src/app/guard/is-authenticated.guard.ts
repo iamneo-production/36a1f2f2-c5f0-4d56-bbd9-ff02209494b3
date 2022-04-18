@@ -15,7 +15,7 @@ export class IsAuthenticatedGuard implements CanActivate {
     return this.service.isLoggedIn.pipe(
       tap(isLoggedin=>{
         if(!isLoggedin){
-          alert('not logged in');
+          alert('please login to continue...');
           this.route.navigate(['login']);
         }
       })

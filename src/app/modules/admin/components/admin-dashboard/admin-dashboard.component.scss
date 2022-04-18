@@ -1,6 +1,13 @@
-.card{
-    width: 18rem;
-    
+.card {
+    width: 280px;
+    height: 520px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background: #fff;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10;
+    overflow: hidden
 }
 .card-title{
     text-align: center;
@@ -11,3 +18,86 @@
 .justify-content-center{
     width: 20cm;
 }
+
+.card:hover {
+
+transform:scale(1.050);
+box-shadow: rgba(0,0,0,0.24) 0px 5px 10px
+}
+.card:hover .backgroundEffect {
+    bottom: 0;
+    height: 320px;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    background: #1b9ce3;
+    animation: popBackground 0.3s ease-in
+}
+
+.card .backgroundEffect {
+    bottom: 0;
+    height: 0px;
+    width: 100%
+}
+@keyframes popBackground {
+    0% {
+        height: 20px;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%
+    }
+
+    50% {
+        height: 80px;
+        border-top-left-radius: 75%;
+        border-top-right-radius: 75%
+    }
+
+    75% {
+        height: 160px;
+        border-top-left-radius: 85%;
+        border-top-right-radius: 85%
+    }
+
+    100% {
+        height: 320px;
+        border-top-left-radius: 100%;
+        border-top-right-radius: 100%
+    }
+}
+
+
+.card .pic img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover
+}   
+
+.card:hover .content .btn {
+    background: #fff;
+    color: #1b9ce3;
+    box-shadow: #0000001a 0px 3px 5px
+}
+
+.card .content .btn1{
+color:fff;
+border-color: rgb(43, 61, 230);
+font-size: 12px;
+}
+
+.card .content .btn{
+    font-size: 12px;
+}
+.card:hover .content .btn1{
+    background-color:rgb(43, 61, 230);
+    color:fff;
+    }
+
+    .card .content .foot .icon {
+        font-size: 12px
+    }
+    .cont{
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.5),
+                    inset 5px 5px 8px rgba(0,0,0,0.5);
+                    background-color: #fff;
+    }

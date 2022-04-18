@@ -21,12 +21,18 @@
                         <strong> Timing:</strong> {{ ground.GroundTiming }}</p>
                       <p class="card-text"*ngIf="ground.price">
                        <strong> Price:</strong> {{ ground.price }}</p>
+
+                       <a class="btn btn-primary me-2" (click)=viewReview(ground.groundId) id="editGround">Reviews</a>
+              <a ><button class="btn btn-primary me-2" [disabled]="ground.Status==false" (click)=addBooking(ground.groundId) id="addGround">Book</button></a>
               </div>
-              <div class="row justify-content-around">
+
+              
+            <!--  <div class="row justify-content-around">
                 <a class="btn btn-primary col-md-5  ms-2 mb-2 fa fa-hand-back-point-up" (click)="openbook(contentbook)"  id="editGround"> 
                   book ground</a>
                 <a class="btn btn-danger col-md-5  me-2 mb-2 fa-solid fa-eye"(click)="openview(contentview)" id="viewGround"> view</a>
                 </div>
+              -->
           </div>
       </div>
       
@@ -51,7 +57,7 @@
 
 
 
-<!--  book ground-->
+<!--  
 
 <ng-template #contentbook let-modal>
   <div class="modal-header">
@@ -98,7 +104,7 @@
 
 
 
-<!-- view ground  -->
+view ground 
 
 
 
@@ -118,5 +124,5 @@
 </ng-template>
  
 
-
+-->
  

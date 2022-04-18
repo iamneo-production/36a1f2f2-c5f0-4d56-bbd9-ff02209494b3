@@ -1,40 +1,36 @@
-<div class="bgbar">
-    <div class="contain pt-5 pb-5" id="MyBookingBody">
-      <div class="row ">
-        <div class="d-flex flex-wrap justify-content-center">
-          <div  class=" card shadow elevation-z4">
-            <div class="card-header" >
-              <div class="card-title">Booking Details</div>
-            </div>
-            <div class="card-body px-5">
-          <form class="form">
-              <div>
-                  <input placeholder="Turfname" name="Turfname">
-              </div>
-                <div>
-                  <input placeholder="Address" name="address">
-                </div>
-                <div>
-                  <input type="date" placeholder="From date:" id="editBookingDate" name="trip-start" value=""
-                  min="2020-03-01" max="2020-04-31">
-                </div>
-                <div>
-                  <input type="date" placeholder="To date:" id="editBookingDate1" name="trip-start" value=""
-                  min="2020-03-01" max="2020-04-31">
-                </div>
-                <div>
-                  <input placeholder="No. of persons" name="noofpersons" id="editNoOfPerson">
-                </div>
-                <div>
-                  <input placeholder="Total Price" name="Total price">
-                </div>
-                <button  type="submit" class="btn btn-primary me-2" routerLink="../editbookedgrounds/:id">Edit Booking</button>
-             <button  type="submit" class="btn btn-warning" id="cancelBookingButton" routerLink="../deletebookedgrounds/:id">cancel Booking</button>
-            </form>
-            
-          </div>
-    </div>
-    </div>
-    </div>
-    </div>
+<div class="bgbar vh-100">
+  <div class="container-sm border" id="list">
+    <br>
+    
+      <br>
+<h2> My Booking </h2>
+<table class = "table table-bordered">
+    <thead>
+        <tr>
+            <th id="list-title">Ground Id</th>
+            <th id="list-title">From Date</th>
+            <th id="list-title">To Date</th>
+            <th id="list-title">Description</th>
+            <th id="list-title">Price</th>
+            <th colspan="2" id="list-title">Action</th>
+            <th id="review">Review</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let booking of bookings" >
+           <td id="list-title">{{booking.groundId}}</td>
+            <td id="list-title"> {{booking.fromDate}} </td>
+            <td id="list-title">{{booking.toDate}}</td>
+            <td id="list-title"> {{ booking.description}} </td>
+            <td id="list-title"> {{ booking.price}} </td>
+            <td><button type="button" (click) = "editBooking(booking.bookingId)" class = "btn btn-primary"><i class="fa fa-pencil"></i></button></td>
+            <td><button type="button" (click) = "deleteBooking(booking.bookingId)" class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+            <li class=" nav-item" role="button" >
+              <a class="nav-link text-dark btn btn-primary btn-sm me-3" id="review" (click)="addReview(booking.groundId)">Add Review</a>
+          </li>
+        </tr>
+        
+    </tbody>
+</table>
+</div>
     </div>

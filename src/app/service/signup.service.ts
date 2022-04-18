@@ -28,4 +28,9 @@ public signupUser(user: User):Observable<any>{
     public signupadmin(user:User):Observable<any>{
 return this.http.post('http://localhost:8080/admin/registeradmin',user)
     }
+
+    public getuseremail(){
+      return this.http.get('http://localhost:8080/user/api/loggeduser',{responseType: 
+      'text'})
+    }
 }

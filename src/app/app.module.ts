@@ -12,6 +12,8 @@ import { NavigationComponent } from './navigation/navigation/navigation.componen
 
 import { AuthInterceptor } from './service/auth.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SignupComponent,
     ForgotpasswordComponent,
     NavigationComponent,
+    ForbiddenComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

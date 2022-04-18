@@ -17,12 +17,13 @@
                         <span class="sr-only"></span>
                     </a>
                  </li>
-                <li class="nav-item" routerLinkActive="active">
-                    <a class="nav-link" id="myBookingButton" routerLink="./bookedgrounds">Mybooking
-                        <span class="sr-only"></span>
-                     </a>
-                 </li>
+                
             </ul>
+            <li class="nav-item" routerLinkActive="active">
+                <button class="nav-link" id="myBookingButton" (click)="bookedground()">Mybooking
+                    <span class="sr-only"></span>
+                </button>
+             </li>
                 <li class=" nav-item" role="button" >
                     <a class="nav-link text-dark btn btn-primary btn-sm me-3" id="logout" (click)="logout()">Logout</a>
                 </li>

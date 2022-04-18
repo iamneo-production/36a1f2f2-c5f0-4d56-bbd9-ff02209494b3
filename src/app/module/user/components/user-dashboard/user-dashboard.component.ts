@@ -35,48 +35,6 @@ export class UserDashboardComponent implements OnInit {
     this.router.navigate(['/user/Ground' ,id]);
   }
 
-
-
-  openview(contentview:any){
-    this.modalService.open(contentview, {
-      centered: true,
-      backdrop: 'static',
-      size: 'lg'
-    });
-  }
-
-
-  openbook(contentbook:any){
-    
-    this.modalService.open(contentbook, {
-      backdrop: 'static',
-      size: 'lg'
-    });
-  }
-
-
-//modal methods
-  
-  open(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-
-    
-  }
-
   public searchground(key:string):void{
     const results:ground[]=[];
     for(const ground of this.grounds ){
@@ -91,5 +49,25 @@ export class UserDashboardComponent implements OnInit {
       this.getGrounds();
     }
   }
+
+
+
+  viewReview(groundId:string){
+    this.router.navigate(['user/viewreview', groundId]);
+  }
+
+  addBooking(groundId:string){
+    this.router.navigate(['user/ground',groundId]);
+  }
+
+
+
+
+
+
+
+
+
+
   
 }

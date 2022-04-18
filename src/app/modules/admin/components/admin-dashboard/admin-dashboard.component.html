@@ -4,22 +4,25 @@
       
       
       <div class="row">
-        <div class="col-md-10">
-          <div class="row justify-content-around">
+        <div class="col-md-6">
+          <div class="row">
         <form class="d-flex justify-content-center">
-            <input class="form-control me-2 col-8" type="search" name="key" (ngModelChange)="searchground(key.value)"  #key="ngModel" ngModel placeholder="Search" aria-label="Search">
+            <input class="form-control me-2 col-sm-12 ms-1" type="search" name="key" (ngModelChange)="searchground(key.value)"  #key="ngModel" ngModel placeholder="Search" aria-label="Search"/>
             <!--<button class="btn btn-success col-sm-2" id="searchButton" type="submit">Search</button>-->
             <button class="btn btn-success col-4 " (click)="open(content)" id="addGround" type="button">Add Ground</button>
           </form>
          
         </div>
       
-      
+      </div>
+    </div>
         <div class="col-12">
-            <div class="d-flex flex-wrap justify-content-around pt-5">
-            <div *ngFor="let ground of grounds">
-             <div class="card shadow mt-2 mb-4 ms-1 me-1" id="adminProfileView">
-                <img class="card-img-top" src="{{ground?.imageURL}}" class="rounded" width="286" height="236" alt="Card image cap">
+            <div class="row d-lg-flex flex-wrap pt-5 cont border mt-3">
+            <div *ngFor="let ground of grounds" class="col-12 col-sm-6 col-lg-4 col-xl-3">
+             <div class="card border-0 shadow mt-2 mb-lg-4 mb-4 me-lg-4 ms-lg-4 " id="adminProfileView" >
+              <div class="backgroundEffect"></div>
+<div class="content">
+                <img class="card-img-top pic " src="{{ground?.imageURL}}" class="rounded" width="286" height="236" alt="Card image cap"/>
               <div class="card-body">
                 <h4 class="card-title"><a routerLink="./grounddetails" [title]="ground?.groundName + ' details'">
                     {{ ground.groundName }}
@@ -32,15 +35,26 @@
                         <strong> Timing:</strong> {{ ground?.GroundTiming }}</p>
                       <p class="card-text"*ngIf="ground.price">
                        <strong> Price:</strong> {{ ground?.price }}</p>
-                         <div class="row justify-content-around">
-                    <a class="btn btn-primary col-md-6  fa fa-edit"   (click)="openEdit(contentEdit,ground)" id="editGround"> Edit Ground</a>
-                    <a class="btn btn-danger col-md-6  fa fa-remove" (click)="openDelete(contentDelete, ground)" id="deleteGround"> Delete ground</a>
+                      
+
+                       <div class="d-flex align-items-center justify-content-between mt-3 pb-3">
+                        
+                        <div class="d-flex align-items-center justify-content-center foot">
+                    <a class="btn btn-primary col-md-6  fa fa-edit"   (click)="openEdit(contentEdit,ground)" id="editGround"> Edit </a>
+                    <a class="btn btn1 col-md-6  fa fa-remove" (click)="openDelete(contentDelete, ground)" id="deleteGround"> Delete</a>
                     </div>
+                    </div>
+
+                  </div>
+
                 </div>
             </div>
         </div>
         </div>
         </div>
+    
+        
+        
 
 <!--add Ground-->
 
@@ -61,8 +75,8 @@
         id="name" name="groundName" 
         placeholder="Enter Name"
          ngModel
-        class="form-control"
-        required
+        class="form-control mb-2"
+        required 
        />
         <label>Enter Name</label>
       </div>
@@ -131,7 +145,7 @@
     <form class="form" [formGroup]="editForm" novalidate  novalidate> 
       <div class="form-group"> 
         <label for="id">Id</label> 
-        <div class="input-group"> 
+        <div class="input-group mb-2"> 
            <input formControlName="groundId" readonly class="form-control mb-2"> 
         </div> 
       </div>
@@ -224,8 +238,10 @@
 
 
 
-    </div>
+  
 </div>
+</div>
+
    
 <!--
 

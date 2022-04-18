@@ -10,6 +10,10 @@ import { DeletebookingComponent } from './components/deletebooking/deletebooking
 import { AddbookingComponent } from './components/addbooking/addbooking.component';
 import { UserhomeComponent } from './components/userhome/userhome.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddreviewComponent } from './components/addreview/addreview.component';
+import { DeletereviewComponent } from './components/deletereview/deletereview.component';
+import { EditreviewComponent } from './components/editreview/editreview.component';
+import { ViewreviewComponent } from './components/viewreview/viewreview.component';
 
 
 @NgModule({
@@ -20,7 +24,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EditbookingComponent,
     DeletebookingComponent,
     AddbookingComponent,
-    UserhomeComponent
+    UserhomeComponent,
+    AddreviewComponent,
+    DeletereviewComponent,
+    EditreviewComponent,
+    ViewreviewComponent
   ],
   imports: [
   CommonModule,

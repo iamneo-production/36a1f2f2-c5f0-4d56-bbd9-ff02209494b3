@@ -13,6 +13,7 @@ import { SignupService } from 'src/app/service/signup.service';
 export class LoginComponent implements OnInit {
  user=new User();
  msg='';
+ erro!:string;
   constructor(private authService:AuthServiceService,private router:Router) { }
 
   ngOnInit(){
@@ -35,7 +36,10 @@ this.authService.login(this.user).subscribe(
    }
 
  },
-  error: err=>{console.log(err.msg);
+  error: err=>{
+    this.erro=err;
+    console.log(this.erro);
+    console.log(err.msg);
   this.msg='Bad credentials';
   
   }

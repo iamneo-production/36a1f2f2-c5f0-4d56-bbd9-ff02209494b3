@@ -1,40 +1,30 @@
 <div class="bgbar">
-    <div class="contain pt-5 pb-5">
-      <div class="row ">
-        <div class="d-flex flex-wrap justify-content-center">
-          <div  class=" card shadow elevation-z4">
-            <div class="card-header" >
-              <div class="card-title">Edit Booking Details</div>
-            </div>
-            <div class="card-body px-5">
-          <form class="form">
-            <div>
-              <input placeholder="Turfname" name="Turfname">
-          </div>
-            <div>
-              <input placeholder="Address" name="address">
-            </div>
-            <div>
-              <input type="date" placeholder="From date:" id="editBookingDate" name="trip-start" value=""
-              min="2020-03-01" max="2020-04-31">
-            </div>
-            <div>
-              <input type="date" placeholder="To date:" id="editBookingDate1" name="trip-start" value=""
-              min="2020-03-01" max="2020-04-31">
-            </div>
-            <div>
-              <input placeholder="No. of persons" name="noofpersons" id="editNoOfPerson">
-            </div>
-            <div>
-              <input placeholder="Total Price" name="Total price">
-            </div>
-                <button  type="submit" class="btn btn-primary w-50 me-2" routerLink="../bookedgrounds">Save</button>
-             
+  <div class="container pt-5 pb-5">
+      <div class="row justify-content-center h-100">
+          <div class="d-flex flex-wrap justify-content-center">
+              <div class="card shadow mt-2 ">
+                  <div class="card-body px-5">
+                  <h5 class="card-title">Edit Booked Ground</h5>
+          <form [formGroup]="editBookGroundForm" class="form"> 
+                <div class="form-group form-floating">
+                  <input type="number"
+                   id="GroundLocation" placeholder="Enter Number of Persons" [(ngModel)]="booking.numberOfPersons"
+                   class="form-control" formControlName="numberOfPersons" />
+                   <label>numberOfPersons</label>
+                </div>
+                <div class="form-group form-floating">
+                  <input type="text"
+                  id="GameType" placeholder="Enter Description" [(ngModel)]="booking.description"
+                  class="form-control" formControlName="description"/>
+                  <label>Description</label>
+                </div>
+
+             <button class="btn btn-primary me-2" type="submit" (click)=editBooking() >Save Changes</button>
+             <a routerLink="../dashboard" href="" class="btn btn-white-link">Cancel</a>
             </form>
-            
+                  </div>
+              </div>
           </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+      </div>
+  </div>
+  </div>
